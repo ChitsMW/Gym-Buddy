@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.UserProfileDao;
 import com.techelevator.model.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,7 @@ public class UserProfileController {
     @Autowired
     private UserProfileDao userProfileDao;
 
+@ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/create/{userId}", method= RequestMethod.POST)
     public UserProfile createUserProfile(@RequestBody UserProfile userProfile, @PathVariable int userId) {
         return userProfileDao.createUserProfile(userProfile, userId);
