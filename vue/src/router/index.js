@@ -6,7 +6,11 @@ import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
-import UserProfileView from '../views/UserProfileView.vue';
+// import UserProfileView from '../views/UserProfileView.vue';
+import AdminDashboardView from '../views/AdminDashboardView.vue';
+import AdminTasksView from '../views/AdminTasksView.vue';
+import UserDashboardView from '../views/UserDashboardView.vue';
+import ProfileView from '../views/ProfileView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -50,10 +54,36 @@ const routes = [
     }
   },
   {
-    path: "/profile",
-    name: "profile",
-    component: UserProfileView,
-  },
+    path: '/admin-dashboard',
+    name: 'admin-dashboard',
+    component: AdminDashboardView,
+    meta: {
+      requiresAuth: true,
+      isAdmin: true, // Additional check for admin role
+  }},
+  {
+    path: '/admin-tasks',
+    name: 'admin-tasks',
+    component: AdminTasksView,
+    meta: {
+      requiresAuth: true,
+      isAdmin: true, // Additional check for admin role
+  }},
+  {
+    path: "/userdashboard",
+    name: "userdashboard",
+    component: UserDashboardView,
+   },
+   {
+    path: "/my-profile/:userId",
+    name: "my-profile",
+    component: ProfileView,
+   },
+  // {
+  //   path: "/profile",
+  //   name: "profile",
+  //   component: UserProfileView,
+  // },
 ];
 
 // Create the router

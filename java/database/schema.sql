@@ -1,7 +1,5 @@
 BEGIN TRANSACTION;
-
 DROP TABLE IF EXISTS users, fitness_goals, user_profile, gym_session, classes, class_user, equipment, exercise_log;
-
 CREATE TABLE users (
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
@@ -72,5 +70,4 @@ CREATE TABLE exercise_log (
     FOREIGN KEY (session_id) REFERENCES gym_session(session_id),
     FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id)
 );
-
 COMMIT TRANSACTION;

@@ -12,4 +12,5 @@ public interface UserProfileDao {
 
     UserProfile editUserProfile(UserProfile modifiedProfile, int profileId);
 
+    int getProfileIdByUserId(int userId);
 }

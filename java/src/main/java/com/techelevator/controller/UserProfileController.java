@@ -14,8 +14,7 @@ public class UserProfileController {
 
     @Autowired
     private UserProfileDao userProfileDao;
-
-@ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/create/{userId}", method= RequestMethod.POST)
     public UserProfile createUserProfile(@RequestBody UserProfile userProfile, @PathVariable int userId) {
         return userProfileDao.createUserProfile(userProfile, userId);
@@ -34,6 +33,11 @@ public class UserProfileController {
     @RequestMapping(path="/{profileId}", method= RequestMethod.PUT)
     public UserProfile editUserProfile(@RequestBody UserProfile modifiedProfile, @PathVariable int profileId) {
         return userProfileDao.editUserProfile(modifiedProfile, profileId);
+    }
+
+    @RequestMapping(path="/profileIdOfUser{userId}", method=RequestMethod.GET)
+    public int getProfileIdByUserId(@PathVariable int userId) {
+        return userProfileDao.getProfileIdByUserId(userId);
     }
 
 }

@@ -68,5 +68,19 @@ public class AuthenticationController {
         }
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/register/newEmployee", method = RequestMethod.POST)
+    public void registerEmployee(@Valid @RequestBody RegisterUserDto newEmployee) {
+        try {
+            User employee = userDao.createEmployee(newEmployee);
+            if (employee == null) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User registration failed.");
+            }
+        } catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
+        }
+    }
+
+
 }
 

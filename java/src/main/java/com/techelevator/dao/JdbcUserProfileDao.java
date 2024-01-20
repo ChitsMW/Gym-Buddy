@@ -82,9 +82,24 @@ public class JdbcUserProfileDao implements UserProfileDao {
         return updatedProfile;
     }
 
+    @Override
+    public int getProfileIdByUserId(int userId) {
+        int profileId = 0;
+        String sql = "SELECT profile_id FROM user_profile WHERE user_id = ?";
+        try {
+            profileId = jdbcTemplate.queryForObject(sql, int.class, userId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return profileId;
+    }
+
     private UserProfile mapRowToProfile(SqlRowSet rs) {
         UserProfile userProfile = new UserProfile();
         userProfile.setProfileId(rs.getInt("profile_id"));
+        userProfile.setUserId(rs.getInt("user_id"));
         userProfile.setName(rs.getString("name"));
         userProfile.setEmail(rs.getString("email"));
         userProfile.setPhoto_url(rs.getString("photo_url"));

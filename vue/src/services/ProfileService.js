@@ -17,4 +17,7 @@ export default {
     editUserProfile(profileId, userProfile) {
         return http.put(`/profile/${profileId}`, userProfile)
     },
+    getProfileIdByUserId(userId) {
+        return http.get(`/profile/profileIdOfUser${userId}`)
+    }
 }

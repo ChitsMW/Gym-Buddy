@@ -8,6 +8,10 @@ export default {
 
   register(user) {
     return axios.post('/register', user)
+  },
+
+  registerEmployee(employee) {
+    return axios.post('/register/newEmployee', employee)
   }
 
 }
