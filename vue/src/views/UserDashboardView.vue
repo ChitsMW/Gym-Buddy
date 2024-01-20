@@ -1,4 +1,10 @@
 <template>
+    <header>
+        <Sidebar />
+        <div :style="{ 'margin-left': sidebarWidth }">
+            <router-view />
+        </div>
+    </header>
     <div class="user-profile">
         <h1>Welcome {{ $store.state.user.username }}!</h1>
         <h2>Enjoy your workout!</h2>
@@ -14,8 +20,11 @@
     </div>
 </template>
 <script>
-import ProfileService from '../services/ProfileService';
+import Sidebar from '@/components/sidebar/Sidebar.vue'
+import {sidebarWidth} from '@/components/sidebar/state.js'
+
 export default {
+    components: {Sidebar},
     methods: {
         startWorkout() {
             // Implement logic to start a workout
@@ -36,24 +45,6 @@ export default {
             // You can use Vue Router to navigate to the profile update page
             this.$router.push({ name: 'my-profile' });
         },
-        checkForProfile() {
-            let profileExists = false;
-            ProfileService.getProfileByUserId(this.$store.state.user.id)
-                .then((response) => {
-                    if (response.data.profile.profile_id !== null) {
-                        profileExists = true;
-
-                    }
-                })
-                .catch((error) => {
-                    const response = error.response;
-                    this.registrationErrors = true;
-                    if (response.status === 400) {
-                        this.registrationErrorMsg = 'Bad Request: Validation Errors';
-                    }
-                });
-            return profileExists;
-        },
     }
 };
 </script>
@@ -72,10 +63,9 @@ button {
     font-size: 1rem;
 }
 
-.button{
+.button {
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
 }
-
 </style>

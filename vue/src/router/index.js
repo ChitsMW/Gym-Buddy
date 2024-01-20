@@ -11,6 +11,14 @@ import AdminDashboardView from '../views/AdminDashboardView.vue';
 import AdminTasksView from '../views/AdminTasksView.vue';
 import UserDashboardView from '../views/UserDashboardView.vue';
 import ProfileView from '../views/ProfileView.vue';
+import EquipmentView from '../views/EquipmentView.vue';
+import Machine1View from '../views/Machine1View.vue';
+import Machine2View from '../views/Machine2View.vue';
+import Machine3View from '../views/Machine3View.vue';
+import Machine4View from '../views/Machine4View.vue';
+import Machine5View from '../views/Machine5View.vue';
+import Machine6View from '../views/Machine6View.vue';
+import Machine7View from '../views/Machine7View.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -79,6 +87,47 @@ const routes = [
     name: "my-profile",
     component: ProfileView,
    },
+   {
+    path: '/equipmentlog',
+    name: 'equipmentlog',
+    component: EquipmentView,
+  },
+  {
+    path: '/machine1',
+    name: 'machine1',
+    component: Machine1View,
+  },
+  {
+    path: '/machine2',
+    name: 'machine2',
+    component: Machine2View,
+  },
+  {
+    path: '/machine3',
+    name: 'machine3',
+    component: Machine3View,
+  },
+  {
+    path: '/machine4',
+    name: 'machine4',
+    component: Machine4View,
+  },
+  {
+    path: '/machine5',
+    name: 'machine5',
+    component: Machine5View,
+  },
+  {
+    path: '/machine6',
+    name: 'machine6',
+    component: Machine6View,
+  },
+  {
+    path: '/machine7',
+    name: 'machine7',
+    component: Machine7View,
+  },
+
   // {
   //   path: "/profile",
   //   name: "profile",
