@@ -1,0 +1,53 @@
+package com.techelevator.controller;
+
+
+import com.techelevator.dao.EquipmentDao;
+import com.techelevator.model.Equipment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.util.List;
+
+
+@CrossOrigin
+@RequestMapping("/equipment")
+@RestController
+public class EquipmentController {
+
+
+    @Autowired
+    private EquipmentDao equipmentDao;
+
+
+    @RequestMapping(path = "/{equipmentId}", method = RequestMethod.GET)
+    public Equipment getEquipmentById(@PathVariable int equipmentId) {
+        return equipmentDao.getEquipmentById(equipmentId);
+    }
+
+
+    @RequestMapping(path = "/list", method = RequestMethod.GET)
+    public List<Equipment> getAllEquipment() {
+        return equipmentDao.getAllEquipment();
+    }
+
+
+    @RequestMapping(path = "/{equipmentId}", method = RequestMethod.POST)
+    public Equipment addNewEquipment(@RequestBody Equipment equipment) {
+        return equipmentDao.addNewEquipment(equipment);
+    }
+
+
+    @RequestMapping(path = "/{equipmentId}", method = RequestMethod.DELETE)
+    public void deleteRecipe(@PathVariable int equipmentId) {
+        equipmentDao.deleteEquipment(equipmentId);
+    }
+
+
+    @RequestMapping(path = "/{equipmentId}", method = RequestMethod.PUT)
+    public Equipment modifyEquipment(@PathVariable int equipmentId, @RequestBody Equipment equipment) {
+        return equipmentDao.modifyEquipment(equipment, equipmentId);
+    }
+
+
+}
