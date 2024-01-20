@@ -19,6 +19,13 @@ import Machine4View from '../views/Machine4View.vue';
 import Machine5View from '../views/Machine5View.vue';
 import Machine6View from '../views/Machine6View.vue';
 import Machine7View from '../views/Machine7View.vue';
+import Calendar from '../components/Calendar.vue';
+import EmployeeDashboardView from '../views/EmployeeDashboardView.vue';
+import ViewMembersView from '../views/ViewMembersView.vue';
+import WorkoutMetricsView from '../views/WorkoutMetricsView.vue'
+import MachineMetricsView from '../views/MachineMetricsView.vue'
+import MemberMetricsView from '../views/MemberMetricsView.vue'
+
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -68,7 +75,8 @@ const routes = [
     meta: {
       requiresAuth: true,
       isAdmin: true, // Additional check for admin role
-  }},
+    }
+  },
   {
     path: '/admin-tasks',
     name: 'admin-tasks',
@@ -76,18 +84,19 @@ const routes = [
     meta: {
       requiresAuth: true,
       isAdmin: true, // Additional check for admin role
-  }},
+    }
+  },
   {
     path: "/userdashboard",
     name: "userdashboard",
     component: UserDashboardView,
-   },
-   {
+  },
+  {
     path: "/my-profile/:userId",
     name: "my-profile",
     component: ProfileView,
-   },
-   {
+  },
+  {
     path: '/equipmentlog',
     name: 'equipmentlog',
     component: EquipmentView,
@@ -127,6 +136,38 @@ const routes = [
     name: 'machine7',
     component: Machine7View,
   },
+  {
+    path: "/calendar",
+    name: "calendar",
+    component: Calendar,
+  },
+  {
+    path: '/employee-dashboard',
+    name: 'employee-dashboard',
+    component: EmployeeDashboardView,
+  },
+
+
+  {
+    path: '/view-members',
+    name: 'view-members',
+    component: ViewMembersView,
+  },
+  {
+    path: '/view-member-metrics',
+    name: 'view-member-metrics',
+    component: WorkoutMetricsView,
+  },
+  {
+    path: '/view-machine-metrics',
+    name: 'view-machine-metrics',
+    component: MachineMetricsView,
+  },
+  {
+    path: '/member-metrics',
+    name: 'member-metrics',
+    component: MemberMetricsView,
+  }
 
   // {
   //   path: "/profile",
@@ -151,7 +192,7 @@ router.beforeEach((to) => {
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
-    return {name: "login"};
+    return { name: "login" };
   }
   // Otherwise, do nothing and they'll go to their next destination
 });

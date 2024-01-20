@@ -8,41 +8,42 @@
         </div>
     </Header>
 
-<!-- code for adding  reps and weight to your session -->
+    <!-- code for adding  reps and weight to your session -->
 
 
     <!-- <div>
-        <label for="workout">Workout/Machine:</label>
-        <select id="workout" name="workout" v-model="workoutName">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-            <option value="option5">Option 5</option>
-            <option value="option6">Option 6</option>
-            <option value="option7">Option 7</option>
-            <option value="option8">Option 8</option>
-            <option value="option9">Option 9</option>
-            <option value="option10">Option 10</option>
-        </select>
+    <label for="workout">Workout/Machine:</label>
+    <select id="workout" name="workout" v-model="workoutName">
+      <option value="chestPress">Chest Press</option>
+      <option value="legExtension">Leg Extension</option>
+      <option value="cableCurl">Cable Curl</option>
+      <option value="seatedCrunch">Seated Crunch</option>
+      <option value="chinUp">Assisted Underhand Chin Up</option>
+      <option value="horizontalLegPress">Horizontal Leg Press</option>
+      <option value="hipAbduction">Seated Hip Abduction/Adduction</option>
+    </select>
 
-        <div v-for="(section, index) in sections" :key="index">
-            <label :for="'reps' + index">Number of Reps:</label>
-            <input type="number" :id="'reps' + index" v-model="section.numReps">
 
-            <label :for="'weight' + index">Weight:</label>
-            <input type="number" :id="'weight' + index" v-model="section.weight"> 
+    <div v-for="(section, index) in sections" :key="index">
+      <label :for="'reps' + index">Number of Reps:</label>
+      <input type="number" :id="'reps' + index" v-model="section.numReps">
 
-             Button to remove the current section -->
-            <!-- <button @click="removeSection(index)">Remove</button>
-        </div> -->
 
-        <!-- Button to add a new section -->
-        <!-- <button @click="addSection">Add More Reps and Weight</button>
+      <label :for="'weight' + index">Weight:</label>
+      <input type="number" :id="'weight' + index" v-model="section.weight">
 
-        <button @click="logEquipmentUsage">Log Usage</button>
 
-    </div> --> 
+       Button to remove the current section
+      <button @click="removeSection(index)">Remove</button>
+    </div>
+
+
+    Button to add a new section
+    <button @click="addSection">Add More Reps and Weight</button>
+
+
+    <button @click="logEquipmentUsage">Log Usage</button>
+  </div> -->
 
     <body>
         <div>

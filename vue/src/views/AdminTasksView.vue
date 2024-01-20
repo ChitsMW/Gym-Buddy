@@ -1,5 +1,5 @@
-
 <template>
+    <button @click="goToAdminDashboard">Return to Dashboard</button>
     <div id="register" class="text-center">
         <form v-on:submit.prevent="registerEmployee">
             <h1>Create Employee Account</h1>

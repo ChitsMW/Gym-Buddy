@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+const http = axios.create({
+  baseURL: "http://localhost:9000"
+})
+
 export default {
 
   login(user) {
@@ -12,6 +16,10 @@ export default {
 
   registerEmployee(employee) {
     return axios.post('/register/newEmployee', employee)
-  }
+  },
+
+  fetchUserList() {
+    return http.get("/users");
+  },
 
 }

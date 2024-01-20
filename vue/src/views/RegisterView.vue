@@ -45,6 +45,8 @@ export default {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
       } else {
+        this.user.username = this.user.username.toLowerCase();
+        this.user.password = this.user.password.toLowerCase();
         authService
           .register(this.user)
           .then((response) => {

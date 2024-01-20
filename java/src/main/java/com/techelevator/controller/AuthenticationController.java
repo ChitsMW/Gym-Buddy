@@ -19,6 +19,8 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -81,6 +83,15 @@ public class AuthenticationController {
         }
     }
 
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        try {
+            return userDao.getUsers();
+        } catch (DaoException e) {
+            // Handle the exception appropriately (e.g., log the error)
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving users.");
+        }
+    }
 
 }
 
