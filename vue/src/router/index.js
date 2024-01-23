@@ -159,8 +159,8 @@ const routes = [
     component: WorkoutMetricsView,
   },
   {
-    path: '/view-machine-metrics',
-    name: 'view-machine-metrics',
+    path: '/machine-metrics',
+    name: 'machine-metrics',
     component: MachineMetricsView,
   },
   {

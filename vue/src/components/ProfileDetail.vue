@@ -1,4 +1,6 @@
 <template>
+<button @click="goToUserDashboard">Return to Dashboard</button>
+    
     <div class="profile-detail">
         <div v-if="profile">
             <h2 id="profile-header">My Profile</h2>
@@ -34,6 +36,7 @@
         <div id="create-button" v-if="!profile">
             <create-profile-form />
         </div>
+
     </div>
 </template>
 
@@ -82,6 +85,16 @@ export default {
                         this.registrationErrorMsg = 'Bad Request: Validation Errors';
                     }
                 });
+        },
+        goToUserDashboard() {
+            const userRole = this.$store.state.user.authorities[0].name;
+            if (userRole === 'ROLE_ADMIN') {
+                this.$router.push('/admin-dashboard');
+            } else if (userRole === 'ROLE_EMPLOYEE') {
+                this.$router.push('/employee-dashboard');
+            } else if (userRole === 'ROLE_USER') {
+                this.$router.push('/userdashboard');
+            }
         },
     },
     created() {

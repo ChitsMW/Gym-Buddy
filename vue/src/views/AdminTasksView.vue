@@ -1,5 +1,5 @@
 <template>
-    <button @click="goToAdminDashboard">Return to Dashboard</button>
+    <button @click="goToUserDashboard">Return to Dashboard</button>
     <div id="register" class="text-center">
         <form v-on:submit.prevent="registerEmployee">
             <h1>Create Employee Account</h1>
@@ -65,6 +65,16 @@ export default {
         clearErrors() {
             this.registrationErrors = false;
             this.registrationErrorMsg = 'There were problems registering this user.';
+        },
+        goToUserDashboard() {
+            const userRole = this.$store.state.user.authorities[0].name;
+            if (userRole === 'ROLE_ADMIN') {
+                this.$router.push('/admin-dashboard');
+            } else if (userRole === 'ROLE_EMPLOYEE') {
+                this.$router.push('/employee-dashboard');
+            } else if (userRole === 'ROLE_USER') {
+                this.$router.push('/userdashboard');
+            }
         },
     },
 };

@@ -1,5 +1,5 @@
 <template>
-    <Header>
+    <!-- <Header>
         <div class="banner">
 
         </div>
@@ -7,7 +7,11 @@
         <div>
             <button @click="goToEquipmentLog">Return to Equipment Log</button>
         </div>
-    </Header>
+    </Header> -->
+    <div>
+        <button @click="goToEquipmentLog">Return to Equipment Log</button>
+
+    </div>
 
     <body>
         <div>
@@ -30,9 +34,13 @@
                 <p>
                     *The pad should rest just below your shins.
                 </p>
-                <div>
-                    <button @click="goToEquipmentLog">Log Usage</button>
+                <!-- <div>
+                    <button @click="goToEquipmentLog">Ready to try it?</button>
+                </div> -->
+                <div class="workout-selector">
+                    <add-exercise-log :equipmentId="equipmentId"/>
                 </div>
+
 
             </div>
 
@@ -42,10 +50,15 @@
  
 
 <script>
+import AddExerciseLog from '../components/AddExerciseLog.vue';
 
 export default {
+    components: {AddExerciseLog},
     data() {
-        return {};
+        return {
+            equipmentId: 2,
+        };
+
     },
     methods: {
         goToEquipmentLog() {
@@ -94,5 +107,24 @@ img {
     height: 200px;
     background: url('~@/assets/banner.jpg') no-repeat center center;
     background-size: cover;
+}
+.workout-selector {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(192, 194, 192);
+    box-shadow: 0 0 10px rgba(20, 20, 20, 0.884);
+    padding: 20px;
+    /* Add padding on all sides */
+    margin: 20px;
+    /* Add margin on all sides */
+    border-radius: 25px;
+    /* Adjust the border-radius as needed for rounded corners */
+    background-color: rgba(241, 205, 4, 0.712);
+    /* Add your desired background color */
+    color: #444343;
+    /* Set text color to improve visibility */
+    align-items: center;
+  justify-content: center;
+  text-align: center;
+
 }
 </style>

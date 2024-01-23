@@ -23,7 +23,13 @@ export function createStore(currentToken, currentUser) {
         state.token = '';
         state.user = {};
         axios.defaults.headers.common = {};
-      }
+        state.loggedIn = false;
+        
+        
+      },
+      setLoggedIn(state, loggedIn) {
+        state.loggedIn = loggedIn;
+      },
     },
   });
   return store;

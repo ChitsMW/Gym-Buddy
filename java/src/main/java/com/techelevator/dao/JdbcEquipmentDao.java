@@ -95,6 +95,43 @@ public class JdbcEquipmentDao implements EquipmentDao {
         return changedEquipment;
     }
 
+    @Override
+    public int getRepsFromEquipment(int equipmentId) {
+        int reps = 0;
+        String sql = "SELECT total_reps FROM equipment WHERE equipment_id = ?;";
+
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, equipmentId);
+        while (results.next()) {
+            reps = mapEquipmentRepsToReps(results);
+        }
+
+
+        return reps;
+    }
+
+
+    @Override
+    public Equipment addReps(int reps, int equipmentId) {
+        Equipment updatedEquipment = null;
+        String sql = "UPDATE equipment SET total_reps=? WHERE equipment_id = ?;";
+
+
+        jdbcTemplate.update(sql, reps, equipmentId);
+        updatedEquipment = getEquipmentById(equipmentId);
+
+
+        return updatedEquipment;
+    }
+
+
+
+
+    public int mapEquipmentRepsToReps(SqlRowSet row){
+        return row.getInt("total_reps");
+    }
+
+
 
     public Equipment mapRowsetToEquipment(SqlRowSet row) {
         Equipment equipment = new Equipment();

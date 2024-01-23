@@ -18,6 +18,10 @@ public interface EquipmentDao {
     void deleteEquipment(int equipmentId);
 
     Equipment modifyEquipment(Equipment modifiedEquipment, int equipmentId);
+    int getRepsFromEquipment(int equipmentId);
+
+
+    Equipment addReps(int reps, int equipmentId);
 
 }
 

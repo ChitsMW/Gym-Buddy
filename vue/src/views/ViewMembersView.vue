@@ -1,11 +1,11 @@
 <template>
-    <button @click="goToEmployeeDashboard">Return to Dashboard</button>
+    <button @click="goToUserDashboard">Return to Dashboard</button>
     <div>
         <h1>LIST OF MEMBERS</h1>
-        <button @click="fetchUserList">Get List of Users</button>
+        <!-- <button @click="fetchUserList">Get List of Users</button> -->
         <ol>
             <li v-for="user in users" :key="user.id">
-                <router-link :to="{ name: 'user-dashboard', params: { id: user.id } }">
+                <router-link :to="{ name: 'userdashboard', params: { id: user.id } }">
                     {{ user.username }}
                 </router-link>
             </li>
@@ -28,8 +28,15 @@ export default {
         this.fetchUserList();
     },
     methods: {
-        goToEmployeeDashboard() {
-            this.$router.push('/employee-dashboard');
+        goToUserDashboard() {
+            const userRole = this.$store.state.user.authorities[0].name;
+            if (userRole === 'ROLE_ADMIN') {
+                this.$router.push('/admin-dashboard');
+            } else if (userRole === 'ROLE_EMPLOYEE') {
+                this.$router.push('/employee-dashboard');
+            } else if (userRole === 'ROLE_USER') {
+                this.$router.push('/userdashboard');
+            }
         },
         async fetchUserList() {
             try {

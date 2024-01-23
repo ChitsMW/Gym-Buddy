@@ -83,9 +83,14 @@ export default {
                 });
         },
         goToUserDashboard() {
-            // Implement logic to navigate to the gym calendar
-            // You can use Vue Router to navigate to the calendar page
-            this.$router.push('/userdashboard');
+            const userRole = this.$store.state.user.authorities[0].name;
+            if (userRole === 'ROLE_ADMIN') {
+                this.$router.push('/admin-dashboard');
+            } else if (userRole === 'ROLE_EMPLOYEE') {
+                this.$router.push('/employee-dashboard');
+            } else if (userRole === 'ROLE_USER') {
+                this.$router.push('/userdashboard');
+            }
         },
     }
 }

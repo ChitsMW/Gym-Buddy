@@ -1,8 +1,19 @@
 <template>
+
+<div id="dashboard-button">
     <button @click="goToUserDashboard">Return to Dashboard</button>
+</div>
+
+    
     <div>
         <div ref="calendar" class="calendar"></div>
     </div>
+
+    
+
+<body>
+    <img src="@/assets/class.gif">
+</body>
 </template>
  
 <script>
@@ -82,6 +93,33 @@ export default {
 <style>
 .calendar {
     background-color: whitesmoke;
+    width: 100%;
+    margin: 0 auto;
+
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* margin-bottom: 20px; */
+    
+
+} 
+/* body { */
+  /* box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589); */
+  /* background: url('@/assets/iStock-871070868.jpg') no-repeat center center fixed; */
+  /* background-size: 100%;   */
+  /* background-color: rgba(236, 234, 234, 0.9); 
+  background-size: 50%;
+  background-color: rgb(255, 254, 254);
+   */
+  /* border-radius: 25px; */
+/* } */
+#dashboard-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
 
 }
+
 </style>
