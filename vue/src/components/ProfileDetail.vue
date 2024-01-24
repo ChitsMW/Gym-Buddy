@@ -1,6 +1,6 @@
 <template>
-<button @click="goToUserDashboard">Return to Dashboard</button>
-    
+    <button @click="goToUserDashboard">Return to Dashboard</button>
+
     <div class="profile-detail">
         <div v-if="profile">
             <h2 id="profile-header">My Profile</h2>
@@ -55,6 +55,7 @@ export default {
         return {
             showForm: false,
             profile: {
+                profileId: '',
                 name: '',
                 email: '',
                 photo_url: '',
@@ -76,7 +77,15 @@ export default {
             ProfileService.createUserProfile(this.$store.state.user.id, this.profile)
                 .then((response) => {
                     this.profile_id = response.data.profileId;
-                    this.$router.push({ name: 'userdashboard' })
+                    
+                    const userRole = this.$store.state.user.authorities[0].name;
+                    if (userRole === 'ROLE_ADMIN') {
+                        this.$router.push('/admin-dashboard');
+                    } else if (userRole === 'ROLE_EMPLOYEE') {
+                        this.$router.push('/employee-dashboard');
+                    } else if (userRole === 'ROLE_USER') {
+                        this.$router.push('/userdashboard');
+                    }
                 })
                 .catch((error) => {
                     const response = error.response;

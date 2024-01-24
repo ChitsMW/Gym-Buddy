@@ -1,11 +1,18 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
 
+
 export function createStore(currentToken, currentUser) {
+  const storedToken = localStorage.getItem('token');
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+
+
   let store = _createStore({
     state: {
-      token: currentToken || '',
-      user: currentUser || {}
+      token: currentToken || storedToken || '',
+      user: currentUser || storedUser || {},
+      currentGymSessionId: null,
+      loggedIn: Boolean(storedToken),
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -22,14 +29,16 @@ export function createStore(currentToken, currentUser) {
         localStorage.removeItem('user');
         state.token = '';
         state.user = {};
-        axios.defaults.headers.common = {};
         state.loggedIn = false;
-        
-        
+        state.currentGymSessionId = null;
+        axios.defaults.headers.common = {};
       },
       setLoggedIn(state, loggedIn) {
         state.loggedIn = loggedIn;
       },
+      setCurrentGymSessionId(state, gymSessionId) {
+        state.currentGymSessionId = gymSessionId;
+      }
     },
   });
   return store;

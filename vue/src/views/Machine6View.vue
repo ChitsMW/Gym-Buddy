@@ -51,7 +51,7 @@ export default {
 
     data() {
         return {
-            equipmentId: 6,
+            equipmentId: 7,
         };
 
     },

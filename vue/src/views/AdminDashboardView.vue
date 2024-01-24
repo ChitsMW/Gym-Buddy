@@ -130,9 +130,13 @@ export default {
             this.$router.push('/calendar');
         },
         logout() {
-            this.$store.commit("LOGOUT");
-            this.$store.commit("SET_USER", { lastLoginDate: null });
-            this.$router.push("/login");
+            if (this.$store.state.currentGymSessionId !== null) {
+                alert("Please end your current gym session before logging out.")
+            } else {
+                this.$store.commit('LOGOUT');
+                this.$store.commit('SET_USER', { lastLoginDate: null });
+                this.$router.push('/login');
+            }
         },
         viewMembers() {
             this.$router.push('/view-members');

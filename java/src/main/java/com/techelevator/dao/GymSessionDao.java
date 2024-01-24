@@ -11,8 +11,11 @@ public interface GymSessionDao {
 
     GymSession getGymSessionBySessionId(int sessionId);
 
-
     List<GymSession> getGymSessionByUserId(int userId);
+
     List<GymSession> getAllGymSessions();
+
     GymSession addNewGymSession(GymSession newGymSession);
+
+    GymSession addDuration(int gymSessionId, Integer duration);
 }

@@ -88,18 +88,26 @@ export default {
         },
         getProfileId() {
             ProfileService.getProfileIdByUserId(this.id)
-            .then((response) => {
-                return response.data;
-            })
-            .catch((error) => {
-                console.log(error.response.statusText);
-            })
+                .then((response) => {
+                    return response.data;
+                })
+                .catch((error) => {
+                    console.log(error.response.statusText);
+                })
         },
         modifyProfile() {
-            ProfileService.editUserProfile(ProfileService.getProfileByProfileId(this.id), this.profile)
+            ProfileService.editUserProfile(this.profileFrom.profileId, this.profile)
                 .then((response) => {
                     this.profile = response.data;
-                    this.$router.push({name: 'userdashboard'})
+                    
+                    const userRole = this.$store.state.user.authorities[0].name;
+                    if (userRole === 'ROLE_ADMIN') {
+                        this.$router.push('/admin-dashboard');
+                    } else if (userRole === 'ROLE_EMPLOYEE') {
+                        this.$router.push('/employee-dashboard');
+                    } else if (userRole === 'ROLE_USER') {
+                        this.$router.push('/userdashboard');
+                    }
                 })
                 .catch((error) => {
                     if (error.response) {

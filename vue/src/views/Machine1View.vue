@@ -59,7 +59,7 @@ export default {
 
     data() {
         return {
-            equipmentId: 1,
+            equipmentId: 3,
         };
 
     },

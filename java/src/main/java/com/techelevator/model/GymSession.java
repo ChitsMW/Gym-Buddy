@@ -9,11 +9,11 @@ public class GymSession {
 
     private int sessionId;
     private int userId;
-    private Date date;
+    private String date;
     private int duration;
 
 
-    public GymSession(int sessionId, int userId, Date date, int duration) {
+    public GymSession(int sessionId, int userId, String date, int duration) {
         this.sessionId = sessionId;
         this.userId = userId;
         this.date = date;
@@ -47,12 +47,12 @@ public class GymSession {
     }
 
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

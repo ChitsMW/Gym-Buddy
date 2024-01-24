@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin
+@CrossOrigin(origins = "http://127.0.0.1:5173")
 @RequestMapping("/session")
 @RestController
 public class GymSessionController {
@@ -39,9 +39,15 @@ public class GymSessionController {
     }
 
 
-    @RequestMapping(path = "add/{sessionId}", method = RequestMethod.POST)
-    public GymSession addNewGymSession(@RequestBody GymSession gymSession, @PathVariable int sessionId) {
+    @RequestMapping(path = "/add", method = RequestMethod.POST)
+    public GymSession addNewGymSession(@RequestBody GymSession gymSession) {
         return gymSessionDao.addNewGymSession(gymSession);
     }
+
+    @RequestMapping(path="/endSession/{gymSessionId}", method = RequestMethod.PUT)
+    public GymSession addDuration(@PathVariable int gymSessionId, @RequestBody Integer duration) {
+        return gymSessionDao.addDuration(gymSessionId, duration);
+    }
+
 }
 

@@ -27,17 +27,16 @@ public class JdbcEquipmentDao implements EquipmentDao {
     @Override
     public Equipment getEquipmentById(int equipmentId) {
         Equipment equipment = null;
-
-
         String sql = "SELECT equipment_id, total_reps, equipment_name, equipment_type, equipment_photo, instructions_video, instructions_animation, targeted_area" +
-                "FROM equipment" +
-                "WHERE equipment_id = ?;";
+                " FROM equipment" +
+                " WHERE equipment_id = ?;";
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, equipmentId);
         while (row.next()) {
             equipment = mapRowsetToEquipment(row);
         }
         return equipment;
     }
+
 
 
     @Override
@@ -99,14 +98,10 @@ public class JdbcEquipmentDao implements EquipmentDao {
     public int getRepsFromEquipment(int equipmentId) {
         int reps = 0;
         String sql = "SELECT total_reps FROM equipment WHERE equipment_id = ?;";
-
-
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, equipmentId);
         while (results.next()) {
             reps = mapEquipmentRepsToReps(results);
         }
-
-
         return reps;
     }
 

@@ -52,7 +52,7 @@ export default {
     components: {AddExerciseLog},
     data() {
         return {
-            equipmentId: 3,
+            equipmentId: 1,
         };
 
     },

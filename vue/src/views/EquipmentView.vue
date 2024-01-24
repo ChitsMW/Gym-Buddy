@@ -14,7 +14,7 @@
 
     <!-- code for adding  reps and weight to your session -->
 
-    <section class="workout-selector">
+    <!-- <section class="workout-selector">
         <div>
             <label for="workout">Workout/Machine:</label>
             <select id="workout" name="workout" v-model="workoutName">
@@ -50,7 +50,7 @@
         </div>
 
 
-    </section>
+    </section> -->
 
 
 

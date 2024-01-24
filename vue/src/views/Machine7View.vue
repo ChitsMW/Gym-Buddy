@@ -41,7 +41,7 @@ export default {
     components: {AddExerciseLog},
     data() {
         return {
-            equipmentId: 7,
+            equipmentId: 5,
         };
 
     },

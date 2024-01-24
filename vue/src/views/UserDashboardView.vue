@@ -13,62 +13,66 @@
         <img src="https://i.pinimg.com/originals/ec/76/0a/ec760a2fe48b77493d39811a0a617ca2.jpg" alt="Inspiration">
 
         <!-- Buttons for different actions -->
-       
+
     </div>
 
     <body>
-    
-    <div class="button-grid">
+
+        <div class="button-grid">
 
 
-        <!-- <button v-if="!isWorkoutInProgress" @click="startWorkout">
+            <!-- <button v-if="!isWorkoutInProgress" @click="startWorkout">
                 <i class="fa-solid fa-dumbbell" style="margin-right: 3px;"></i> Start Workout
             </button>
             <button v-else @click="endWorkout">End Workout</button> -->
-            <button @click="goToEquipment"><i class="fa-solid fa-list"  style="margin-right: 9px;"></i>Equipment Log</button>
-            <button @click="goToGymCalendar"> <i class="fa-regular fa-calendar-days" style="margin-right: 9px;"></i>Gym Calendar</button>
-            <button class="button" @click="goToMyProfile"><i class="fa-solid fa-user"  style="margin-right: 9px;"></i>View Profile</button>
+            <button @click="goToEquipment"><i class="fa-solid fa-list" style="margin-right: 9px;"></i>Equipment Log</button>
+            <button @click="goToGymCalendar"> <i class="fa-regular fa-calendar-days" style="margin-right: 9px;"></i>Gym
+                Calendar</button>
+            <button class="button" @click="goToMyProfile"><i class="fa-solid fa-user" style="margin-right: 9px;"></i>View
+                Profile</button>
             <!-- <router-link class="button"
                 v-bind:to="{ name: 'my-profile', params: { userId: this.$store.state.user.id } }">View
                 Profile</router-link> -->
-            <button @click="viewPersonalMetrics"><i class="fa-solid fa-clock-rotate-left" style="margin-right: 9px;"></i>Past Sessions</button>
+            <button @click="viewPersonalMetrics"><i class="fa-solid fa-clock-rotate-left"
+                    style="margin-right: 9px;"></i>Past Sessions</button>
             <button @click="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 9px;"></i>Logout</button>
 
-        <!-- <div class="clock"> -->
+            <!-- <div class="clock"> -->
             <!-- <div v-if="isWorkoutInProgress"> -->
             <!-- <p>Workout Duration: {{ liveWorkoutDuration }}</p>
         </div> -->
 
 
 
-    </div>
-
-    
+        </div>
 
 
-</body>
 
-<section>
-    <div>
-        <h2>Featured this Week</h2>
-    </div>
-</section>
 
-<section>
-   
-<div>
-    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/zumba-class-ad-instagram-template-design-e6e0ee134a017d0f3011c7b2479e84b0_screen.jpg?ts=1636853345" alt="Zumba Class">
-</div>
-  
-</section>
-<section>
-   
-   <div>
-       <img src="https://static.vecteezy.com/system/resources/previews/005/464/329/original/yoga-class-illustration-isolated-concept-flat-cartoon-woman-asana-position-fitness-stretching-meditation-poster-banner-business-card-announcement-sport-lifestyle-mandala-vector.jpg" alt="Yoga Class">
-   </div> 
-       
-   </section>
+    </body>
 
+    <section>
+        <div>
+            <h2>Featured this Week</h2>
+        </div>
+    </section>
+
+    <section>
+
+        <div>
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/zumba-class-ad-instagram-template-design-e6e0ee134a017d0f3011c7b2479e84b0_screen.jpg?ts=1636853345"
+                alt="Zumba Class">
+        </div>
+
+    </section>
+    <section>
+
+        <div>
+            <img src="https://static.vecteezy.com/system/resources/previews/005/464/329/original/yoga-class-illustration-isolated-concept-flat-cartoon-woman-asana-position-fitness-stretching-meditation-poster-banner-business-card-announcement-sport-lifestyle-mandala-vector.jpg"
+                alt="Yoga Class">
+        </div>
+
+    </section>
 </template>
 
 
@@ -150,15 +154,14 @@ export default {
             this.$router.push('/calendar');
         },
         logout() {
-            this.$store.commit('LOGOUT');
-            this.$store.commit('SET_USER', { lastLoginDate: null });
-            this.$router.push('/login');
+            if (this.$store.state.currentGymSessionId !== null) {
+                alert("Please end your current gym session before logging out.")
+            } else {
+                this.$store.commit('LOGOUT');
+                this.$store.commit('SET_USER', { lastLoginDate: null });
+                this.$router.push('/login');
+            }
         },
-        // viewProfile() {
-        //     // Implement logic to navigate to the profile update page
-        //     // You can use Vue Router to navigate to the profile update page
-        //     this.$router.push({ name: 'my-profile' });
-        // },
         viewPersonalMetrics() {
             this.$router.push('/member-metrics');
         },
@@ -168,9 +171,9 @@ export default {
             this.$router.push({ name: 'my-profile', params: { userId } });
         },
 
-       
 
-        
+
+
     }
 };
 </script>
@@ -184,11 +187,11 @@ body {
     align-items: center;
     justify-content: center;
     margin: 10px;
-    
+
     background-color: rgb(236, 234, 234);
 }
 
-section{
+section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,13 +202,13 @@ section{
 }
 
 body {
-  box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589);
-  background: url('@/assets/weights.jpg') no-repeat center center fixed;
-  background-size: 125%;  
-  /* background-color: rgba(236, 234, 234, 0.9); 
+    box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589);
+    background: url('@/assets/weights.jpg') no-repeat center center fixed;
+    background-size: 125%;
+    /* background-color: rgba(236, 234, 234, 0.9); 
   background-size: cover;
   background-color: rgb(236, 234, 234); */
-  border-radius: 25px;
+    border-radius: 25px;
 }
 
 
@@ -215,13 +218,14 @@ img {
     max-width: 350px;
     height: auto;
 }
+
 .user-profile {
     /* Example styles, customize as needed */
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     justify-content: center; 
+    justify-content: center;
 }
 
 button {
@@ -244,6 +248,7 @@ h3 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .button-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -275,6 +280,7 @@ button {
     width: 200px;
     height: 100px;
 }
+
 button {
     border-radius: 20px;
     padding: 10px;
@@ -313,12 +319,8 @@ button {
     height: 75px;
 } */
 @media (max-width: 768px) {
-  .button-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-</style>
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+}</style>
     
