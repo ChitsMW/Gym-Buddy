@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="banner">
+    <div>
 
       <div>
         <img class="header-logo" src="/src/assets/Logo_4.png" alt="Logo" />
@@ -119,12 +119,12 @@ header {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ddeed6;
   /* Set your desired background color */
-  width: 100%;
-  color: #fff;
+  /* width: 100%;
+  color: #fff; */
   /* Set text color for better visibility */
   text-align: center;
   /* Adjust text alignment if needed */
-  padding: 20px;
+  padding: 0px;
   /* Add padding as needed */
   /* box-shadow: 0 0 10px rgba(20, 20, 20, 0.589); */
 
@@ -148,14 +148,14 @@ footer {
 
 
 #app {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "nav"
+  /* display: grid;
+  grid-template-columns: 1fr; */
+  /* grid-template-areas: "nav" */
     /* "view" */
-    "footer";
+    /*"footer";*/
   /* position: relative; */
   /* height: 100vh; */
-  gap: 20px;
+  /* gap: 20px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -173,16 +173,12 @@ h1 {
   justify-content: center;
 
   height: 200px;
-  /* background: url('~@/assets/banner.jpg') no-repeat center center; */
+  
   background-size: 100% 100%;
 
 }
 
-/* .banner {
-  height: 200px;
-  background-image: url('@/assets/banner.jpg');
-  background-size: cover;
-} */
+
 
 
 @media (max-width: 500px) {

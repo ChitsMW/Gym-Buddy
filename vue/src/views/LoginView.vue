@@ -151,54 +151,27 @@ methods: {
 /* Add styling for your logo and form elements here */
 body {
 /* Set background image properties for the entire page */
-
-
 /* Do not repeat the background image */
 min-height: 100vh;
 /* Ensure the background covers the full viewport height */
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 box-sizing: border-box;
 margin: 0;
-
-
 /* Other styles specific to the #app element */
 }
-
-
 #login {
 /* Other styles specific to the login box */
 max-width: 400px;
 margin: 0 auto;
 padding: 20px;
 box-shadow: 0 0 10px rgba(192, 191, 191, 0.884);
-color: rgb(12, 12, 12);
+background-color: rgba(255, 255, 255, 0.5);;
+border-radius: 75px;
 align-items: center;
 justify-content: center;
 text-align: center;
-
-
+/* color: rgb(12, 12, 12); */
 }
-
-
-/* img {
-max-width: 200px;
-display: block;
-margin-bottom: 20px;
-} */
-
-
-.form-input-group {
-margin-bottom: 1rem;
-}
-
-
-label {
-margin-right: 0.5rem;
-color: rgb(10, 10, 10);
-font-weight: bold;
-}
-
-
 .background-container  {
 background-image: url('/src/assets/iStock-871070868.jpg');
 background-size: cover;
@@ -207,9 +180,26 @@ background-position: center;
 /* Center the background image */
 background-repeat: no-repeat;
 }
+.form-input-group {
+margin-bottom: 1rem;
+}
+.register{color: white;}
+h1 {
+  color: white;
+  padding-top: 5rem;
+}
+label {
+margin-right: 0.5rem;
+color: white;
+/* color: rgb(10, 10, 10); */
+font-weight: bold;
+}
+/* img {
+  max-width: 200px;
+  display: block;
+  margin-bottom: 20px;
+  } */
 </style>
-
-
 <!-- <style scoped>
 /* Add styling for your logo and form elements here */
 #login {
@@ -217,15 +207,12 @@ background-repeat: no-repeat;
   max-width: 400px;
   margin: 0 auto;
 }
-
 img {
   max-width: 100%;
 }
-
 .form-input-group {
   margin-bottom: 1rem;
 }
-
 label {
   margin-right: 0.5rem;
 }

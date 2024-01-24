@@ -181,59 +181,48 @@ export default {
 
 <style scoped>
 /* Add styling for your user profile page here */
-
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
-
     background-color: rgb(236, 234, 234);
 }
-
-section {
+section{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
-
 body {
-    box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589);
-    background: url('@/assets/weights.jpg') no-repeat center center fixed;
-    background-size: 125%;
-    /* background-color: rgba(236, 234, 234, 0.9); 
+  box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589);
+  background: url('@/assets/weights.jpg') no-repeat center center fixed;
+  background-size: 125%;
+  /* background-color: rgba(236, 234, 234, 0.9);
   background-size: cover;
   background-color: rgb(236, 234, 234); */
-    border-radius: 25px;
+  border-radius: 25px;
 }
-
-
-
 img {
     border-radius: 12px;
     max-width: 350px;
     height: auto;
 }
-
 .user-profile {
     /* Example styles, customize as needed */
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    justify-content: center;
+     justify-content: center;
 }
-
 button {
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
 }
-
 .clock {
     border: 1px solid #ccc;
     padding: auto;
@@ -242,63 +231,50 @@ button {
     text-align: center;
     background-color: whitesmoke;
 }
-
 h1,
 h3 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .button-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr ;
     gap: 10px;
-    /* Use 'gap' for both row and column gaps */
     max-width: auto;
     margin: 5px auto;
-    /* Center the grid horizontally */
     align-items: center;
     justify-content: center;
 }
-
 /* .button-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
   margin: 70px 0;
-  justify-content: center; 
+  justify-content: center;
 } */
-
 /* .button-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
-    
 } */
-
 button {
     width: 200px;
     height: 100px;
 }
-
 button {
     border-radius: 20px;
     padding: 10px;
     /* width: 200px auto;
     height: 100px; */
 }
-
 /* button {
     border-radius: 20px;
     font-weight: bold;
     font-size: 1.15rem;
 } */
-
 /* .button-grid {
     margin: 10px 0;
-    
 } */
-
 /* button {
     padding: 10px;
 } */
@@ -318,9 +294,24 @@ button {
   width: 170px;
     height: 75px;
 } */
-@media (max-width: 768px) {
-    .button-grid {
-        grid-template-columns: 1fr;
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 18px; /* Adjust font size for tablets */
     }
-}</style>
-    
+    .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 20px; /* Adjust font size for desktops */
+    }
+    .button-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        /* Three equal-width columns for screens wider than 1200px */
+        justify-self: stretch;
+    }
+  }
+</style>

@@ -12,7 +12,7 @@
             
             <div class="button-grid">
 
-                <div class="user-buttons">
+                
                     <!-- <button v-if="!isWorkoutInProgress" @click="startWorkout">Start Workout</button>
                     <button v-else @click="endWorkout">End Workout</button> -->
                     <button @click="goToEquipment"><i class="fa-solid fa-list" style="margin-right: 9px;"></i>Equipment
@@ -28,7 +28,7 @@
                     <button @click="viewPersonalMetrics"><i class="fa-solid fa-clock-rotate-left"
                             style="margin-right: 9px;"></i>Past Sessions</button>
 
-                    <div class="employee-buttons">
+                    
                         <button @click="viewMembers"><i class="fa-solid fa-users" style="margin-right: 9px;"></i>View
                             Members</button>
                         <button @click="viewMemberMetrics"><i class="fa-solid fa-chart-column"
@@ -37,13 +37,11 @@
                                 style="margin-right: 9px;"></i>View Machine Metrics</button>
                                 <button @click="addEmployee"><i class="fa-solid fa-user-plus" style="margin-right: 9px;"></i>Add
                                 Employee</button>
-                        <div class="admin-buttons">
-                           
-                        </div>
-                    </div>
+                       
+                    
                     <button @click="logout"><i class="fa-solid fa-right-from-bracket"
                             style="margin-right: 9px;"></i>Logout</button>
-                </div>
+                
 
 
 
@@ -179,14 +177,15 @@ body {
 }
 
 body {
-  box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589);
-  background: url('@/assets/floor.jpg') no-repeat center center fixed;
-  background-size: 175%;  
-  background-color: rgb(250, 183, 0); 
-  background-size: cover;
-  background-color: rgb(236, 234, 234);
-  border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(5, 5, 5, 0.589);
+    background: url('@/assets/floor.jpg') no-repeat center center fixed;
+    background-size: 175%;
+    background-color: rgb(250, 183, 0);
+    background-size: cover;
+    background-color: rgb(236, 234, 234);
+    border-radius: 25px;
 }
+
 img {
     border-radius: 12px;
     max-width: 350px;
@@ -286,9 +285,25 @@ button {
   width: 170px;
     height: 75px;
 } */
-@media (max-width: 768px) {
-    .button-grid {
-        grid-template-columns: 1fr;
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 18px; /* Adjust font size for tablets */
     }
+    .button-grid {
+    grid-template-columns: repeat(2, 1fr);
 }
+}
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 20px; /* Adjust font size for desktops */
+    }
+    .button-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        /* Three equal-width columns for screens wider than 1200px */
+        justify-self: stretch;
+    }
+  }
+
 </style>

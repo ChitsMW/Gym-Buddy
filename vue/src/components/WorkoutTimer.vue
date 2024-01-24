@@ -1,7 +1,7 @@
 <template>
     <div id="nav">
-        <button v-if="!workoutStarted" @click="startWorkout">Start Workout</button>
-        <button v-if="workoutStarted" @click="endWorkout">End Workout</button>
+        <button v-if="!workoutStarted" @click="startWorkout"><i class="fa-solid fa-dumbbell" style="margin-right: 3px;"></i>Start Workout</button>
+        <button v-if="workoutStarted" @click="endWorkout"><i class="fa-solid fa-stopwatch fa-beat" style="margin-right: 5px;"></i>End Workout</button>
         <p>Workout Duration: {{ liveWorkoutDuration }}</p>
     </div>
 </template>
