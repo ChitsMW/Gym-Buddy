@@ -140,7 +140,7 @@ export default {
             this.$router.push('/view-members');
         },
         viewMemberMetrics() {
-            this.$router.push('/member-metrics');
+            this.$router.push('/all-member-metrics');
         },
         viewMachineMetrics() {
             this.$router.push('/machine-metrics');

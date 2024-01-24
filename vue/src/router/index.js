@@ -25,6 +25,7 @@ import ViewMembersView from '../views/ViewMembersView.vue';
 import WorkoutMetricsView from '../views/WorkoutMetricsView.vue'
 import MachineMetricsView from '../views/MachineMetricsView.vue'
 import MemberMetricsView from '../views/MemberMetricsView.vue'
+import AllMemberMetricsView from '../views/AllMemberMetricsView.vue'
 
 
 /**
@@ -167,6 +168,11 @@ const routes = [
     path: '/member-metrics',
     name: 'member-metrics',
     component: MemberMetricsView,
+  },
+  {
+    path: '/all-member-metrics',
+    name: 'all-member-metrics',
+    component: AllMemberMetricsView,
   }
 
   // {

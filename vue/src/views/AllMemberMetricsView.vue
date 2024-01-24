@@ -1,34 +1,62 @@
 <template>
     <button @click="goToUserDashboard">Return to Dashboard</button>
-    <div class="main-section">
+    <div>
         <h1>Gym Visit Metrics</h1>
-        <h2>Your Gym Visits</h2>
-        <div>
+        <div v-if="isEmployeeOrAdmin" class="main-section">
+            <form action="" v-on:submit.prevent="fetchUserVisitMetrics">
+                <h2>Fetch User Metrics</h2>
+                <label for="userId">Enter User ID: </label>
+                <input type="text" id="userId" v-model="inputUserId" />
+                <br>
+                <br>
+                <button type="submit">Fetch Visit Metrics</button>
+            </form>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Id</th>
+                        <th>Date</th>
+                        <th>Session Id</th>
+                        <th>Visit Duration in minutes</th>
+                        <th>Equipment</th>
+                        <th>Reps</th>
+                        <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="log in logMetrics" :key="log.sessionId">
+                        <td>{{ log.userId }}</td>
+                        <td>{{ log.date }}</td>
+                        <td>{{ log.sessionId }}</td>
+                        <td>{{ log.duration }}</td>
+                        <td>{{ log.equipmentName }}</td>
+                        <td>{{ log.reps }}</td>
+                        <td>{{ log.weight }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>All User Metrics</h2>
+
+            <table>
+                <!--Table content for 'ROLE_EMPLOYEE' and 'ROLE_ADMIN'-->
+                <thead>
+                    <tr>
+                        <th>User Id</th>
+                        <th>Date</th>
+                        <th>Visit Duration in minutes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="session in userMetrics" :key="session.sessionId">
+                        <td>{{ session.userId }}</td>
+                        <td>{{ session.date }}</td>
+                        <td>{{ session.duration }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Session Id</th>
-                    <th>Visit Duration in minutes</th>
-                    <th>Equipment</th>
-                    <th>Reps</th>
-                    <th>Weight</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="personal in personalMetrics" :key="personal.sessionId">
-                    <td>{{ personal.date }}</td>
-                    <td>{{ personal.sessionId }}</td>
-                    <td>{{ personal.duration }}</td>
-                    <td>{{ personal.equipmentName }}</td>
-                    <td>{{ personal.reps }}</td>
-                    <td>{{ personal.weight }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Average Duration in minutes: {{ averageDuration }}</p>
-        
     </div>
 </template>
 <script>
@@ -192,14 +220,13 @@ export default {
 };
 </script>
 
-
 <style>
-
-h1, h2 {
+h1,
+h2 {
     text-align: center;
 }
 
-.main-section{
+.main-section {
     text-align: center;
     align-items: center;
 }
@@ -227,5 +254,4 @@ th {
 tr:hover {
     background-color: #cccccc;
 }
-
 </style>
