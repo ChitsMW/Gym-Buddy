@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 
 import com.techelevator.model.Equipment;
+import com.techelevator.model.LogDto;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -119,14 +120,28 @@ public class JdbcEquipmentDao implements EquipmentDao {
         return updatedEquipment;
     }
 
-
-
-
     public int mapEquipmentRepsToReps(SqlRowSet row){
         return row.getInt("total_reps");
     }
 
+    @Override
+    public List<LogDto> getMonthlyUsage(String year, String month) {
+        List<LogDto> monthlyList = new ArrayList<>();
+        String sql = "SELECT gym_session.date, gym_session.duration,equipment.equipment_id, equipment.equipment_name, gym_session.session_id, gym_session.user_id, exercise_log.reps, exercise_log.weight,equipment.total_reps\n" +
+                " FROM gym_session\n" +
+                " JOIN exercise_log ON gym_session.session_id = exercise_log.session_id\n" +
+                " JOIN equipment ON exercise_log.equipment_id = equipment.equipment_id\n" +
+                " WHERE EXTRACT(YEAR FROM gym_session.date) = CAST(? AS INTEGER)\n" +
+                " AND EXTRACT(MONTH FROM gym_session.date) = CAST(? AS INTEGER);";
 
+
+        SqlRowSet row = jdbcTemplate.queryForRowSet(sql, year, month);
+        while (row.next()) {
+            LogDto logDto = MapRowsetToLog(row);
+            monthlyList.add(logDto);
+        }
+        return monthlyList;
+    }
 
     public Equipment mapRowsetToEquipment(SqlRowSet row) {
         Equipment equipment = new Equipment();
@@ -139,6 +154,22 @@ public class JdbcEquipmentDao implements EquipmentDao {
         equipment.setInstructionsAnimation(row.getString("instructions_animation"));
         equipment.setTargetedArea(row.getString("targeted_area"));
         return equipment;
+    }
+
+    public LogDto MapRowsetToLog(SqlRowSet row) {
+        LogDto newLog = new LogDto();
+        newLog.setDate(row.getString("date"));
+        newLog.setDuration(row.getInt("duration"));
+        newLog.setEquipmentId(row.getInt("equipment_id"));
+        newLog.setEquipmentName(row.getString("equipment_name"));
+        newLog.setSessionId(row.getInt("session_id"));
+        newLog.setUserId(row.getInt("user_id"));
+        newLog.setReps(row.getInt("reps"));
+        newLog.setWeight(row.getDouble("weight"));
+        newLog.setTotalReps(row.getInt("total_reps"));
+
+
+        return newLog;
     }
 }
 

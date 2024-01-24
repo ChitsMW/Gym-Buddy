@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Equipment;
+import com.techelevator.model.LogDto;
 
 
 import java.util.List;
@@ -22,6 +23,8 @@ public interface EquipmentDao {
 
 
     Equipment addReps(int reps, int equipmentId);
+
+    List <LogDto> getMonthlyUsage(String year, String month);
 
 }
 

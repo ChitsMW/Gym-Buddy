@@ -4,6 +4,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.EquipmentDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Equipment;
+import com.techelevator.model.LogDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -73,6 +74,10 @@ public List<Equipment> getAllEquipment() {
         return equipmentDao.addReps(reps, equipmentId);
     }
 
+    @RequestMapping(path = "/usage/{year}/{month}", method = RequestMethod.GET)
+    public List<LogDto> getMonthlyUsage(@PathVariable String year, @PathVariable String month){
+        return equipmentDao.getMonthlyUsage(year,month);
 
+    }
 
 }
