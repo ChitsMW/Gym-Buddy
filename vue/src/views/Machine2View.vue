@@ -22,23 +22,18 @@
                 <h2>
                     Machine | Beginner | Core
 
-
                 </h2>
                 <h3>Tips & Tricks</h3>
                 <p>
-                    * Keep your core engaged and your back and butt firmly against the pads.
+                    * Align your torso with the pivot of the machine and focus on using your abdominals to perform the
+                    movement.
                 </p>
-                <p>
-                    *Make sure to align your knees with the pivot point of the machine.
-                </p>
-                <p>
-                    *The pad should rest just below your shins.
-                </p>
+
                 <!-- <div>
                     <button @click="goToEquipmentLog">Ready to try it?</button>
                 </div> -->
                 <div class="workout-selector">
-                    <add-exercise-log :equipmentId="equipmentId"/>
+                    <add-exercise-log :equipmentId="equipmentId" />
                 </div>
 
 
@@ -53,7 +48,7 @@
 import AddExerciseLog from '../components/AddExerciseLog.vue';
 
 export default {
-    components: {AddExerciseLog},
+    components: { AddExerciseLog },
     data() {
         return {
             equipmentId: 2,
@@ -108,6 +103,7 @@ img {
     background: url('~@/assets/banner.jpg') no-repeat center center;
     background-size: cover;
 }
+
 .workout-selector {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(192, 194, 192);
@@ -123,8 +119,8 @@ img {
     color: #444343;
     /* Set text color to improve visibility */
     align-items: center;
-  justify-content: center;
-  text-align: center;
+    justify-content: center;
+    text-align: center;
 
 }
 </style>

@@ -101,7 +101,7 @@
 
 
                 <h3>Functional Trainer Machine</h3>
-                <router-link to="/machine6 ">
+                <router-link to="/machine6">
                     <img src="@/assets/machine6.jpg" alt="Machine Image 6" class="machine-image">
                 </router-link>
 

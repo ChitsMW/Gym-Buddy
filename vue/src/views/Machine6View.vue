@@ -22,13 +22,10 @@
                 </h2>
                 <h3>Tips & Tricks</h3>
                 <p>
-                    * Keep your core engaged and your back and butt firmly against the pads.
+                    * Bend your knees slightly and keep your core engaged.
                 </p>
                 <p>
-                    *Make sure to align your knees with the pivot point of the machine.
-                </p>
-                <p>
-                    *The pad should rest just below your shins.
+                    *Maintain a consistent elbow position throughout the movement.
                 </p>
                 <!-- <div>
                     <button @click="goToEquipmentLog">Ready to try it?</button>

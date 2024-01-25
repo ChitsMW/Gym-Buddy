@@ -5,7 +5,7 @@
         <div v-if="isEmployeeOrAdmin" class="main-section">
             <form action="" v-on:submit.prevent="fetchUserVisitMetrics">
                 <h2>Fetch User Metrics</h2>
-                <label for="userId">Enter User ID: </label>
+                <label for="userId">Enter User ID:  </label>
                 <input type="text" id="userId" v-model="inputUserId" />
                 <br>
                 <br>
@@ -221,12 +221,12 @@ export default {
 </script>
 
 <style>
-h1,
-h2 {
+
+h1, h2 {
     text-align: center;
 }
 
-.main-section {
+.main-section{
     text-align: center;
     align-items: center;
 }
@@ -254,4 +254,5 @@ th {
 tr:hover {
     background-color: #cccccc;
 }
+
 </style>

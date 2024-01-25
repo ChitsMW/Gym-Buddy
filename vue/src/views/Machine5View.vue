@@ -22,19 +22,19 @@
                 </h2>
                 <h3>Tips & Tricks</h3>
                 <p>
-                    * Keep your core engaged and your back and butt firmly against the pads.
+                    * Keep your core engaged and your and your head , shoulders, and back flat against the pad.
                 </p>
                 <p>
-                    *Make sure to align your knees with the pivot point of the machine.
+                    *Avoid locking out your elbows when extending your arms.
                 </p>
                 <p>
-                    *The pad should rest just below your shins.
+                    *Your arms should stay at roughly 90-degree angles at the beginning of each repetition.
                 </p>
                 <!-- <div>
                     <button @click="goToEquipmentLog">Ready to try it?</button>
                 </div> -->
                 <div class="workout-selector">
-                    <add-exercise-log :equipmentId="equipmentId"/>
+                    <add-exercise-log :equipmentId="equipmentId" />
                 </div>
 
             </div>
@@ -47,9 +47,9 @@
 import AddExerciseLog from '../components/AddExerciseLog.vue';
 export default {
 
-    
 
-    components: {AddExerciseLog},
+
+    components: { AddExerciseLog },
 
     data() {
         return {
@@ -102,6 +102,7 @@ img {
     background: url('~@/assets/banner.jpg') no-repeat center center;
     background-size: cover;
 }
+
 .workout-selector {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(192, 194, 192);
@@ -117,9 +118,8 @@ img {
     color: #444343;
     /* Set text color to improve visibility */
     align-items: center;
-  justify-content: center;
-  text-align: center;
+    justify-content: center;
+    text-align: center;
 
 }
-
 </style>

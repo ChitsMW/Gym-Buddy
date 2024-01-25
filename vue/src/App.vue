@@ -12,6 +12,7 @@
   </header>
 
   <div id="nav">
+    <br>
     <div v-if="loggedIn">
       <workout-timer />
     </div>

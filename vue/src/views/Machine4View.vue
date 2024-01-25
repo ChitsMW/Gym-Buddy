@@ -18,24 +18,22 @@
                 <h1>Chin-Dip Assist Machine</h1>
                 <img src="@/assets/machine4.gif">
                 <h2>
-                    Machine | Intermediate | Arms/Back
+                    Machine | Advanced | Arms/Back
                 </h2>
                 <h3>Tips & Tricks</h3>
                 <p>
-                    * Keep your core engaged and your back and butt firmly against the pads.
+                    * Keep your core engaged throughout the movement and use an underhand grip as you pull your chin to the
+                    bar.
                 </p>
                 <p>
-                    *Make sure to align your knees with the pivot point of the machine.
-                </p>
-                <p>
-                    *The pad should rest just below your shins.
+                    *Squeeze your shoulder blades together as you finish each repetition.
                 </p>
                 <!-- <div>
                     <button @click="goToEquipmentLog">Ready to try it?</button>
                 </div> -->
 
                 <div class="workout-selector">
-                    <add-exercise-log :equipmentId="equipmentId"/>
+                    <add-exercise-log :equipmentId="equipmentId" />
                 </div>
 
             </div>
@@ -48,7 +46,7 @@
 import AddExerciseLog from '../components/AddExerciseLog.vue';
 export default {
 
-    components: {AddExerciseLog},
+    components: { AddExerciseLog },
 
     data() {
         return {
@@ -103,6 +101,7 @@ img {
     background: url('~@/assets/banner.jpg') no-repeat center center;
     background-size: cover;
 }
+
 .workout-selector {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(192, 194, 192);
@@ -118,9 +117,8 @@ img {
     color: #444343;
     /* Set text color to improve visibility */
     align-items: center;
-  justify-content: center;
-  text-align: center;
+    justify-content: center;
+    text-align: center;
 
 }
-
 </style>

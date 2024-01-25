@@ -203,13 +203,16 @@ export default {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-
 .modal-content {
-    background-color: #fefefe;
+    background-color: #FEFEFE;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 40px;;
 }
 
 
@@ -265,5 +268,10 @@ export default {
 
 
 
+}
+
+img{
+    width: 349px;
+    margin: 0px;
 }
 </style>
