@@ -1,5 +1,1 @@
-# Final Capstone
-​
-This directory contains all of the starter projects for the final capstone.
-​
-Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
+Built a full stack digital assistant web application with a team to help gym attendees keep track of the time spent at the gym and work done using workout machines or weights. Worked on Scrum team using Agile methodology. Tech used: Java; Database Programming: JDBC, TableDesign, SQL, PostgreSQL, E/R diagrams. Server-side APIs: Postman. Front-end: HTML, CSS, JavaScript, Spring Boot, Vue.js.
