@@ -7,7 +7,7 @@ Full stack digital assistant web application with a team to help gym attendees k
 Java; Database Programming: JDBC, TableDesign, SQL, PostgreSQL, E/R diagrams. Server-side APIs: Postman. Front-end: HTML, CSS, JavaScript, Spring Boot, Vue.js.
 
 ## Team:
-Chitsanzo Isaac, Carolina Maestro, Caleigh, Isabella, Jenna
+Chitsanzo Isaac, Carolina Maestro, Caleigh Schmid, Isabella Zho, Jennifer Inskip
 Worked on Scrum team using Agile methodology.
 
 ## Description:
