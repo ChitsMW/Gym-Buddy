@@ -10,7 +10,7 @@ Server-side APIs: Postman.
 Front-end: HTML, CSS, JavaScript, Spring Boot, Vue.js.
 
 ## Team:
-Chitsanzo Isaac, Carolina Maestro, Caleigh Schmid, Isabella Zho, Jennifer Inskip
+Chitsanzo Isaac, Carolina Maestre, Caleigh Schmid, Isabella Zho, Jennifer Inskip
 Worked on Scrum team using Agile methodology.
 
 ## Description:
